@@ -23,3 +23,9 @@ export const updateJob = (id, jobData) => {
     const data = response.json();
     return data;
 };
+
+export const deleteJob = (id) => {
+    const response = fetch(`http://localhost:9000/jobs/${id}`, { method: 'DELETE' });
+    const data = response.json();
+    return data;
+};
