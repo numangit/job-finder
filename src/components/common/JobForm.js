@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addJobs } from '../../features/jobs/jobsSlice';
+import { addJob, editJob } from '../../features/jobs/jobsSlice';
 
 const JobForm = ({ isEdit, currentJobId }) => {
 
@@ -10,10 +10,10 @@ const JobForm = ({ isEdit, currentJobId }) => {
     const currentJob = jobs.find(job => job.id === Number(currentJobId));
 
     //controlled form states
-    const [title, setTitle] = useState(isEdit ? currentJob.title : '');
-    const [type, setType] = useState(isEdit ? currentJob.type : '');
-    const [salary, setSalary] = useState(isEdit ? currentJob.salary : '');
-    const [deadline, setDeadline] = useState(isEdit ? currentJob.deadline : '');
+    const [title, setTitle] = useState(isEdit ? currentJob?.title : '');
+    const [type, setType] = useState(isEdit ? currentJob?.type : '');
+    const [salary, setSalary] = useState(isEdit ? currentJob?.salary : '');
+    const [deadline, setDeadline] = useState(isEdit ? currentJob?.deadline : '');
 
     const jobData = {
         title,
@@ -21,7 +21,7 @@ const JobForm = ({ isEdit, currentJobId }) => {
         salary,
         deadline
     };
-    console.log("initial:", jobData);
+    // console.log("initial:", jobData);
 
     //function to reset form states
     const resetForm = () => {
@@ -34,19 +34,16 @@ const JobForm = ({ isEdit, currentJobId }) => {
     //function to handle add job
     const addHandler = (e) => {
         e.preventDefault();
-        // console.log("Handler:", jobData);
-        dispatch(addJobs(jobData));
+        dispatch(addJob(jobData));
         resetForm();
     };
 
     //function to handle edit job
     const editHandler = (e) => {
         e.preventDefault();
-        // console.log("Handler:", jobData);
-        dispatch(addJobs(jobData));
+        dispatch(editJob({ currentJobId, jobData }));
         resetForm();
     };
-
 
     return (
         <form onSubmit={isEdit ? editHandler : addHandler} className="space-y-6">
