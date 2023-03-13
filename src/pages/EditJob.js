@@ -1,7 +1,12 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import JobForm from '../components/common/JobForm';
 
 const EditJob = () => {
+
+    //to get the url parameter 
+    const { id } = useParams();
+
     return (
         <div className="lg:pl-[14rem] mt-[5.8125rem]">
             <main className="max-w-3xl rounded-lg mx-auto relative z-20 p-10 xl:max-w-none bg-[#1E293B]">
@@ -58,7 +63,7 @@ const EditJob = () => {
                             <input type="submit" value="Edit" className="lws-submit cursor-pointer btn btn-primary w-fit" />
                         </div>
                     </form> */}
-                    <JobForm isEdit={true} />
+                    <JobForm isEdit={true} currentJobId={id} />
                 </div>
             </main>
         </div>
