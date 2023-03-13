@@ -1,4 +1,5 @@
 import React from 'react';
+import JobForm from '../components/common/JobForm';
 
 const EditJob = () => {
     return (
@@ -7,7 +8,7 @@ const EditJob = () => {
                 <h1 className="mb-10 text-center section-title">Edit Job</h1>
 
                 <div className="max-w-3xl mx-auto">
-                    <form className="space-y-6">
+                    {/* <form className="space-y-6">
                         <div className="fieldContainer">
                             <label for="lwsJobTitle" className="text-sm font-medium text-slate-300">Job Title</label>
                             <select id="lwsJobTitle" name="lwsJobTitle" autoComplete="lwsJobTitle" required>
@@ -56,7 +57,8 @@ const EditJob = () => {
                         <div className="text-right">
                             <input type="submit" value="Edit" className="lws-submit cursor-pointer btn btn-primary w-fit" />
                         </div>
-                    </form>
+                    </form> */}
+                    <JobForm isEdit={true} />
                 </div>
             </main>
         </div>
