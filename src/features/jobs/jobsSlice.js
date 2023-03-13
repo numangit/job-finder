@@ -56,4 +56,6 @@ const jobsSlice = createSlice({
                 state.jobs = [];
             })
     }
-})
+});
+
+export default jobsSlice.reducer;
