@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addJob, editJob } from '../../features/jobs/jobsSlice';
 
 const JobForm = ({ isEdit, currentJobId }) => {
+
+    const navigate = useNavigate();
 
     //getting the current job data
     const jobs = useSelector(state => state.jobs.jobs);
@@ -43,6 +46,7 @@ const JobForm = ({ isEdit, currentJobId }) => {
         e.preventDefault();
         dispatch(editJob({ currentJobId, jobData }));
         resetForm();
+        navigate('/');
     };
 
     return (
