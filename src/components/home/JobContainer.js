@@ -13,7 +13,7 @@ const JobContainer = () => {
     }, [dispatch])
 
     return (
-        <div class="jobs-list ">
+        <div className="jobs-list ">
             {
                 isLoading
                 && <h1 style={{ color: 'white' }}>Loading...</h1>

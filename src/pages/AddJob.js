@@ -2,15 +2,15 @@ import React from 'react';
 
 const AddJob = () => {
     return (
-        <div class="lg:pl-[14rem] mt-[5.8125rem]">
-            <main class="max-w-3xl rounded-lg mx-auto relative z-20 p-10 xl:max-w-none bg-[#1E293B]">
-                <h1 class="mb-10 text-center section-title">Add New Job</h1>
+        <div className="lg:pl-[14rem] mt-[5.8125rem]">
+            <main className="max-w-3xl rounded-lg mx-auto relative z-20 p-10 xl:max-w-none bg-[#1E293B]">
+                <h1 className="mb-10 text-center section-title">Add New Job</h1>
 
-                <div class="max-w-3xl mx-auto">
-                    <form class="space-y-6">
-                        <div class="fieldContainer">
-                            <label for="lwsJobTitle" class="text-sm font-medium text-slate-300">Job Title</label>
-                            <select id="lwsJobTitle" name="lwsJobTitle" autocomplete="lwsJobTitle" required>
+                <div className="max-w-3xl mx-auto">
+                    <form className="space-y-6">
+                        <div className="fieldContainer">
+                            <label for="lwsJobTitle" className="text-sm font-medium text-slate-300">Job Title</label>
+                            <select id="lwsJobTitle" name="lwsJobTitle" autoComplete="lwsJobTitle" required>
                                 <option value="" hidden selected>Select Job</option>
                                 <option>Software Engineer</option>
                                 <option>Software Developer</option>
@@ -28,9 +28,9 @@ const AddJob = () => {
                                 <option>Frontend Engineer</option>
                             </select>
                         </div>
-                        <div class="fieldContainer">
+                        <div className="fieldContainer">
                             <label for="lwsJobType">Job Type</label>
-                            <select id="lwsJobType" name="lwsJobType" autocomplete="lwsJobType" required>
+                            <select id="lwsJobType" name="lwsJobType" autoComplete="lwsJobType" required>
                                 <option value="" hidden selected>Select Job Type</option>
                                 <option>Full Time</option>
                                 <option>Internship</option>
@@ -38,21 +38,21 @@ const AddJob = () => {
                             </select>
                         </div>
 
-                        <div class="fieldContainer">
+                        <div className="fieldContainer">
                             <label for="lwsJobSalary">Salary</label>
-                            <div class="flex border rounded-md shadow-sm border-slate-600">
-                                <span class="input-tag">BDT</span>
-                                <input type="number" name="lwsJobSalary" id="lwsJobSalary" required class="!rounded-l-none !border-0"
+                            <div className="flex border rounded-md shadow-sm border-slate-600">
+                                <span className="input-tag">BDT</span>
+                                <input type="number" name="lwsJobSalary" id="lwsJobSalary" required className="!rounded-l-none !border-0"
                                     placeholder="20,00,000" />
                             </div>
                         </div>
 
-                        <div class="fieldContainer">
+                        <div className="fieldContainer">
                             <label for="lwsJobDeadline">Deadline</label>
                             <input type="date" name="lwsJobDeadline" id="lwsJobDeadline" required />
                         </div>
-                        <div class="text-right">
-                            <input type="submit" value="Save" class="lws-submit cursor-pointer btn btn-primary w-fit" />
+                        <div className="text-right">
+                            <input type="submit" value="Save" className="lws-submit cursor-pointer btn btn-primary w-fit" />
                         </div>
                     </form>
                 </div>
