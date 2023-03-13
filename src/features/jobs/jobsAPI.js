@@ -1,11 +1,11 @@
-export const getJobs = () => {
-    const response = fetch("http://localhost:9000/jobs");
+export const getJobs = async () => {
+    const response = await fetch("http://localhost:9000/jobs");
     const data = response.json();
     return data;
 };
 
-export const postJob = (jobData) => {
-    const response = fetch("http://localhost:9000/jobs", {
+export const postJob = async (jobData) => {
+    const response = await fetch("http://localhost:9000/jobs", {
         method: 'POST',
         headers: { "content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify(jobData)
@@ -14,8 +14,8 @@ export const postJob = (jobData) => {
     return data;
 };
 
-export const updateJob = (id, jobData) => {
-    const response = fetch(`http://localhost:9000/jobs/${id}`, {
+export const updateJob = async (id, jobData) => {
+    const response = await fetch(`http://localhost:9000/jobs/${id}`, {
         method: 'PATCH',
         headers: { "content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify(jobData)
@@ -24,8 +24,8 @@ export const updateJob = (id, jobData) => {
     return data;
 };
 
-export const deleteJob = (id) => {
-    const response = fetch(`http://localhost:9000/jobs/${id}`, { method: 'DELETE' });
+export const deleteJob = async (id) => {
+    const response = await fetch(`http://localhost:9000/jobs/${id}`, { method: 'DELETE' });
     const data = response.json();
     return data;
 };
