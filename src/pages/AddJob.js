@@ -10,7 +10,7 @@ const AddJob = () => {
                 <div className="max-w-3xl mx-auto">
                     {/* <form className="space-y-6">
                         <div className="fieldContainer">
-                            <label for="lwsJobTitle" className="text-sm font-medium text-slate-300">Job Title</label>
+                            <label htmlFor="lwsJobTitle" className="text-sm font-medium text-slate-300">Job Title</label>
                             <select id="lwsJobTitle" name="lwsJobTitle" autoComplete="lwsJobTitle" required>
                                 <option value="" hidden selected>Select Job</option>
                                 <option>Software Engineer</option>
@@ -30,7 +30,7 @@ const AddJob = () => {
                             </select>
                         </div>
                         <div className="fieldContainer">
-                            <label for="lwsJobType">Job Type</label>
+                            <label htmlFor="lwsJobType">Job Type</label>
                             <select id="lwsJobType" name="lwsJobType" autoComplete="lwsJobType" required>
                                 <option value="" hidden selected>Select Job Type</option>
                                 <option>Full Time</option>
@@ -40,7 +40,7 @@ const AddJob = () => {
                         </div>
 
                         <div className="fieldContainer">
-                            <label for="lwsJobSalary">Salary</label>
+                            <label htmlFor="lwsJobSalary">Salary</label>
                             <div className="flex border rounded-md shadow-sm border-slate-600">
                                 <span className="input-tag">BDT</span>
                                 <input type="number" name="lwsJobSalary" id="lwsJobSalary" required className="!rounded-l-none !border-0"
@@ -49,7 +49,7 @@ const AddJob = () => {
                         </div>
 
                         <div className="fieldContainer">
-                            <label for="lwsJobDeadline">Deadline</label>
+                            <label htmlFor="lwsJobDeadline">Deadline</label>
                             <input type="date" name="lwsJobDeadline" id="lwsJobDeadline" required />
                         </div>
                         <div className="text-right">

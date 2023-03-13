@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addJob, editJob } from '../../features/jobs/jobsSlice';
 
 const JobForm = ({ isEdit, currentJobId }) => {
-
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     //getting the current job data
-    const jobs = useSelector(state => state.jobs.jobs);
-    const dispatch = useDispatch();
-    const currentJob = jobs.find(job => job.id === Number(currentJobId));
+    const currentJob = useSelector(state => state.jobs.job);
 
     //controlled form states
     const [title, setTitle] = useState(isEdit ? currentJob?.title : '');
@@ -18,13 +16,19 @@ const JobForm = ({ isEdit, currentJobId }) => {
     const [salary, setSalary] = useState(isEdit ? currentJob?.salary : '');
     const [deadline, setDeadline] = useState(isEdit ? currentJob?.deadline : '');
 
+    useEffect(() => {
+        setTitle(isEdit ? currentJob?.title : '');
+        setType(isEdit ? currentJob?.type : '');
+        setSalary(isEdit ? currentJob?.salary : '');
+        setDeadline(isEdit ? currentJob?.deadline : '');
+    }, [isEdit, currentJob])
+
     const jobData = {
         title,
         type,
         salary,
         deadline
     };
-    // console.log("initial:", jobData);
 
     //function to reset form states
     const resetForm = () => {
@@ -52,10 +56,10 @@ const JobForm = ({ isEdit, currentJobId }) => {
     return (
         <form onSubmit={isEdit ? editHandler : addHandler} className="space-y-6">
             <div className="fieldContainer">
-                <label for="lwsJobTitle" className="text-sm font-medium text-slate-300">Job Title</label>
+                <label htmlFor="lwsJobTitle" className="text-sm font-medium text-slate-300">Job Title</label>
                 <select id="lwsJobTitle" name="lwsJobTitle" autoComplete="lwsJobTitle" required value={title}
                     onChange={(e) => setTitle(e.target.value)}>
-                    <option value="" hidden selected>Select Job</option>
+                    <option value="" hidden defaultValue>Select Job</option>
                     <option value="Software Developer">Software Developer</option>
                     <option value="Full Stack Developer">Full Stack Developer</option>
                     <option value="MERN Stack Developer">MERN Stack Developer</option>
@@ -73,10 +77,10 @@ const JobForm = ({ isEdit, currentJobId }) => {
                 </select>
             </div>
             <div className="fieldContainer">
-                <label for="lwsJobType">Job Type</label>
+                <label htmlFor="lwsJobType">Job Type</label>
                 <select id="lwsJobType" name="lwsJobType" autoComplete="lwsJobType" required value={type}
                     onChange={(e) => setType(e.target.value)}>
-                    <option value="" hidden selected>Select Job Type</option>
+                    <option value="" hidden defaultValue>Select Job Type</option>
                     <option value="Full Time">Full Time</option>
                     <option value="Internship">Internship</option>
                     <option value="Remote">Remote</option>
@@ -84,7 +88,7 @@ const JobForm = ({ isEdit, currentJobId }) => {
             </div>
 
             <div className="fieldContainer">
-                <label for="lwsJobSalary">Salary</label>
+                <label htmlFor="lwsJobSalary">Salary</label>
                 <div className="flex border rounded-md shadow-sm border-slate-600">
                     <span className="input-tag">BDT</span>
                     <input type="number" name="lwsJobSalary" id="lwsJobSalary" required className="!rounded-l-none !border-0"
@@ -95,7 +99,7 @@ const JobForm = ({ isEdit, currentJobId }) => {
             </div>
 
             <div className="fieldContainer">
-                <label for="lwsJobDeadline">Deadline</label>
+                <label htmlFor="lwsJobDeadline">Deadline</label>
                 <input type="date" name="lwsJobDeadline" id="lwsJobDeadline" required
                     value={deadline}
                     onChange={(e) => setDeadline(e.target.value)} />

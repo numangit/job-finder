@@ -4,6 +4,12 @@ export const getJobs = async () => {
     return data;
 };
 
+export const getJob = async (id) => {
+    const response = await fetch(`http://localhost:9000/jobs/${id}`);
+    const data = response.json();
+    return data;
+};
+
 export const postJob = async (jobData) => {
     const response = await fetch("http://localhost:9000/jobs", {
         method: 'POST',
