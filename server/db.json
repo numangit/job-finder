@@ -41,34 +41,6 @@
       "salary": "18000",
       "deadline": "2022-12-31",
       "id": 7
-    },
-    {
-      "title": "Full Stack Developer",
-      "type": "Internship",
-      "salary": "2344444",
-      "deadline": "2023-03-31",
-      "id": 8
-    },
-    {
-      "id": 9,
-      "title": "QA Engineer",
-      "type": "Remote",
-      "salary": "222222",
-      "deadline": "2023-03-01"
-    },
-    {
-      "id": 10,
-      "title": "Full Stack Developer",
-      "type": "Internship",
-      "salary": "11101010101",
-      "deadline": "2023-03-16"
-    },
-    {
-      "id": 11,
-      "title": "IOS App Developer",
-      "type": "Internship",
-      "salary": "383838",
-      "deadline": "2023-03-23"
     }
   ]
 }
