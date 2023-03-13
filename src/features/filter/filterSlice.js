@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const filterSlice = createSlice({
-    name: "jobs",
+    name: "filter",
     initialState,
     reducers: {
         selectJobType: (state, action) => {
