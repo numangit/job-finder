@@ -4,7 +4,7 @@ const AddJob = () => {
     return (
         <div class="lg:pl-[14rem] mt-[5.8125rem]">
             <main class="max-w-3xl rounded-lg mx-auto relative z-20 p-10 xl:max-w-none bg-[#1E293B]">
-                <h1 class="mb-10 text-center section-title">Edit Job</h1>
+                <h1 class="mb-10 text-center section-title">Add New Job</h1>
 
                 <div class="max-w-3xl mx-auto">
                     <form class="space-y-6">
@@ -28,7 +28,6 @@ const AddJob = () => {
                                 <option>Frontend Engineer</option>
                             </select>
                         </div>
-
                         <div class="fieldContainer">
                             <label for="lwsJobType">Job Type</label>
                             <select id="lwsJobType" name="lwsJobType" autocomplete="lwsJobType" required>
@@ -52,9 +51,8 @@ const AddJob = () => {
                             <label for="lwsJobDeadline">Deadline</label>
                             <input type="date" name="lwsJobDeadline" id="lwsJobDeadline" required />
                         </div>
-
                         <div class="text-right">
-                            <input type="submit" value="Edit" class="lws-submit cursor-pointer btn btn-primary w-fit" />
+                            <input type="submit" value="Save" class="lws-submit cursor-pointer btn btn-primary w-fit" />
                         </div>
                     </form>
                 </div>
