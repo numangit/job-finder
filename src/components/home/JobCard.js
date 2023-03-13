@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removedJob, removeJob } from '../../features/jobs/jobsSlice';
+import { removeJob } from '../../features/jobs/jobsSlice';
 
 const JobCard = ({ job }) => {
     const { id, title, type, salary, deadline } = job;
@@ -10,7 +10,6 @@ const JobCard = ({ job }) => {
     //function to handle delete
     const deleteHandler = (id) => {
         dispatch(removeJob(id));
-        dispatch(removedJob(id));
     };
 
     return (

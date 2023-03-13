@@ -22,19 +22,19 @@ export const fetchJob = createAsyncThunk("jobs/fetchJob", async (id) => {
 });
 
 //thunk function to add job
-export const addJob = createAsyncThunk("jobs/addJobs", async (jobData) => {
+export const addJob = createAsyncThunk("jobs/addJob", async (jobData) => {
     const addedJob = await postJob(jobData);
     return addedJob;
 });
 
 //thunk function to edit job
-export const editJob = createAsyncThunk("jobs/editJobs", async ({ currentJobId, jobData }) => {
+export const editJob = createAsyncThunk("jobs/editJob", async ({ currentJobId, jobData }) => {
     const updatedJob = await updateJob(currentJobId, jobData);
     return updatedJob;
 });
 
 //thunk function to remove job
-export const removeJob = createAsyncThunk("jobs/removeJobs", async (id) => {
+export const removeJob = createAsyncThunk("jobs/removeJob", async (id) => {
     const removedJob = await deleteJob(id);
     return removedJob;
 });
@@ -42,11 +42,6 @@ export const removeJob = createAsyncThunk("jobs/removeJobs", async (id) => {
 const jobsSlice = createSlice({
     name: "jobs",
     initialState,
-    reducers: {
-        removedJob: (state, action) => {
-            state.jobs.filter(job => job.id !== action.meta.arg)
-        }
-    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchJobs.pending, (state) => {
@@ -84,6 +79,22 @@ const jobsSlice = createSlice({
                 state.isError = true;
                 state.error = action.error.message;
                 state.job = {};
+            })
+            .addCase(removeJob.pending, (state) => {
+                state.isLoading = true;
+                state.isError = false;
+                state.error = '';
+            })
+            .addCase(removeJob.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isError = false;
+                state.error = '';
+                state.jobs = state.jobs.filter(job => job.id !== action.meta.arg);
+            })
+            .addCase(removeJob.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.error = action.error.message;
             })
     }
 });
