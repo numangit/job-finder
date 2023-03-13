@@ -4,9 +4,9 @@ import { fetchJobs } from '../../features/jobs/jobsSlice';
 import JobCard from './JobCard';
 
 const JobContainer = () => {
+
     const { jobs, isLoading, isError, error } = useSelector(state => state.jobs);
     const dispatch = useDispatch();
-    console.log(jobs);
 
     useEffect(() => {
         dispatch(fetchJobs());
