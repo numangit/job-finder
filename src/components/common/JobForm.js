@@ -31,9 +31,9 @@ const JobForm = ({ isEdit }) => {
     //function to handle add job
     const addHandler = (e) => {
         e.preventDefault();
-        console.log("Handler:", jobData);
-        // dispatch(addJobs(jobData));
-        // resetForm();
+        // console.log("Handler:", jobData);
+        dispatch(addJobs(jobData));
+        resetForm();
     };
 
     //function to handle edit job

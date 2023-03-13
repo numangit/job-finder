@@ -41,6 +41,13 @@
       "salary": "18000",
       "deadline": "2022-12-31",
       "id": 7
+    },
+    {
+      "title": "Full Stack Developer",
+      "type": "Internship",
+      "salary": "2344",
+      "deadline": "2023-03-31",
+      "id": 8
     }
   ]
 }
