@@ -20,7 +20,6 @@ const Sidebar = () => {
         nevigate('/');
     };
 
-
     return (
         <div className="sidebar">
             <nav>
