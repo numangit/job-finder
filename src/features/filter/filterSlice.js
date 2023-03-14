@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    JobType: "",
+    jobType: "",
     search: "",
     sort: ""
 };
@@ -11,7 +11,7 @@ const filterSlice = createSlice({
     initialState,
     reducers: {
         selectJobType: (state, action) => {
-            state.JobType = action.payload
+            state.jobType = action.payload
         },
         setSearch: (state, action) => {
             state.search = action.payload
