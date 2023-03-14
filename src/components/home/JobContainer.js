@@ -48,7 +48,6 @@ const JobContainer = () => {
         }
     };
 
-
     return (
         <div className="jobs-list ">
             {

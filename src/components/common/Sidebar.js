@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { selectJobType } from '../../features/filter/filterSlice';
 
 const Sidebar = () => {
-
+    const nevigate = useNavigate();
     const dispatch = useDispatch();
 
     //function to handle filter job type 
@@ -13,12 +13,21 @@ const Sidebar = () => {
         dispatch(selectJobType(type));
     };
 
+    //function to handle filter job type 
+    const handleAllJobs = (e, type) => {
+        e.preventDefault();
+        dispatch(selectJobType(type));
+        nevigate('/');
+    };
+
+
     return (
         <div className="sidebar">
             <nav>
                 <ul className="space-y-4">
                     <li>
                         <Link
+                            onClick={(e) => handleAllJobs(e, '')}
                             to={"/"} className="main-menu menu-active lws-allJob">
                             <i className="fa-solid fa-briefcase"></i>
                             <span> All Available Jobs</span>
