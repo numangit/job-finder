@@ -9,15 +9,12 @@ const SearchSection = () => {
 
     //function to handle search
     const handleSearch = (e) => {
-        setSelectSearch(e.target.value);
-        console.log(e.target.value);
-        // dispatch(setSearch(e.target.value));
+        e.key === "Enter" && dispatch(setSearch(selectSearch));
     };
 
     //function to handle sort
     const handleSort = (e) => {
         setSelectSort(e.target.value);
-        console.log(e.target.value);
         dispatch(setSort(e.target.value));
     };
 
@@ -27,7 +24,7 @@ const SearchSection = () => {
             <div className="flex gap-4">
                 <div className="search-field group flex-1">
                     <i className="fa-solid fa-magnifying-glass search-icon group-focus-within:text-blue-500"></i>
-                    <input type="text" placeholder="Search Job" className="search-input" id="lws-searchJob" value={selectSearch} onKeyUp={handleSearch} />
+                    <input type="text" placeholder="Search Job" className="search-input" id="lws-searchJob" value={selectSearch} onKeyUp={handleSearch} onChange={(e) => setSelectSearch(e.target.value)} />
                 </div>
                 <select id="lws-sort" name="sort" autoComplete="sort" className="flex-1"
                     value={selectSort} onChange={handleSort}>
