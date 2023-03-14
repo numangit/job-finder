@@ -37,6 +37,17 @@ const JobContainer = () => {
         }
     };
 
+    //function to sort by search
+    const filterBySearch = (job) => {
+        if (job.title.toLowerCase().indexOf(search.toLowerCase()) !== -1) {
+            return true;
+        } else if (search === "") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
 
     return (
         <div className="jobs-list ">
@@ -50,7 +61,7 @@ const JobContainer = () => {
             }
             {
                 !isLoading && !isError && jobs.length > 0
-                && jobs?.filter(filterByType).sort(sortBySalary).map(job => <JobCard key={job.id} job={job} />)
+                && jobs?.filter(filterByType).sort(sortBySalary).filter(filterBySearch).map(job => <JobCard key={job.id} job={job} />)
             }
             {
                 !isLoading && !isError && jobs.length === 0
