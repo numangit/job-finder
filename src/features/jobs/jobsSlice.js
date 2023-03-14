@@ -42,6 +42,11 @@ export const removeJob = createAsyncThunk("jobs/removeJob", async (id) => {
 const jobsSlice = createSlice({
     name: "jobs",
     initialState,
+    reducers: {
+        addNewJob: (state, action) => {
+            state.jobs.push(action.payload)
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchJobs.pending, (state) => {
@@ -100,4 +105,4 @@ const jobsSlice = createSlice({
 });
 
 export default jobsSlice.reducer;
-export const { removedJob } = jobsSlice.actions;
+export const { addNewJob } = jobsSlice.actions;

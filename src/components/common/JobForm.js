@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addJob, editJob } from '../../features/jobs/jobsSlice';
+import { addJob, addNewJob, editJob } from '../../features/jobs/jobsSlice';
 
 const JobForm = ({ isEdit, currentJobId }) => {
     const navigate = useNavigate();
@@ -42,6 +42,7 @@ const JobForm = ({ isEdit, currentJobId }) => {
     const addHandler = (e) => {
         e.preventDefault();
         dispatch(addJob(jobData));
+        dispatch(addNewJob(jobData));
         resetForm();
     };
 
