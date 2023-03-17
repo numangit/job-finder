@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSearch, setSort } from '../../features/filter/filterSlice';
 
 const SearchSection = () => {
-    const { jobType, search, sort } = useSelector(state => state.filter);
+    const { jobType } = useSelector(state => state.filter);
     const [selectSearch, setSelectSearch] = useState("");
     const [selectSort, setSelectSort] = useState("");
     const dispatch = useDispatch();

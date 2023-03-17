@@ -11,12 +11,6 @@ const Sidebar = () => {
     const handleJobFilter = (e, type) => {
         e.preventDefault();
         dispatch(selectJobType(type));
-    };
-
-    //function to handle filter job type 
-    const handleAllJobs = (e, type) => {
-        e.preventDefault();
-        dispatch(selectJobType(type));
         nevigate('/');
     };
 
@@ -26,7 +20,7 @@ const Sidebar = () => {
                 <ul className="space-y-4">
                     <li>
                         <Link
-                            onClick={(e) => handleAllJobs(e, '')}
+                            onClick={(e) => handleJobFilter(e, '')}
                             to={"/"} className="main-menu menu-active lws-allJob">
                             <i className="fa-solid fa-briefcase"></i>
                             <span> All Available Jobs</span>
