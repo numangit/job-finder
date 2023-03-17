@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSearch, setSort } from '../../features/filter/filterSlice';
 
 const SearchSection = () => {
+    const { jobType, search, sort } = useSelector(state => state.filter);
     const [selectSearch, setSelectSearch] = useState("");
     const [selectSort, setSelectSort] = useState("");
     const dispatch = useDispatch();
@@ -20,7 +21,11 @@ const SearchSection = () => {
 
     return (
         <div className="md:flex space-y-2 md:space-y-0 justify-between mb-10 ">
-            <h1 className="section-title">All Available Jobs</h1>
+            <h1 className="section-title">
+                {
+                    jobType === "" ? "All Available Jobs" : `Available ${jobType} Jobs`
+                }
+            </h1>
             <div className="flex gap-4">
                 <div className="search-field group flex-1">
                     <i className="fa-solid fa-magnifying-glass search-icon group-focus-within:text-blue-500"></i>
